@@ -18,11 +18,7 @@ shinyServer(function(input, output, session) {
     
     # Now we can create a plot of the data.
     plot <- df_vis %>% 
-      filter(MoleIndexX >= input$sliderX) %>% 
-      filter(MoleActivatedDuration >= input$sliderY) %>% 
-      ggplot(aes(x=MoleIndexX, y = MoleActivatedDuration)) + geom_point() 
-    
-    ggplotly(plot)
+      plot_ly(x= ~MoleIndexX, y = ~MoleActivatedDuration)
     
     return(plot)
   })
