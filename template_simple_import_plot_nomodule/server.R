@@ -5,7 +5,7 @@ shinyServer(function(input, output, session) {
   observeEvent(input$file, {
     r$df <-  read.csv(input$file$datapath, header=TRUE, sep = ";")
   })  
-
+  
   output$speedPlot <- renderPlot({
     #validate() ensures that our code is only executed if the dataframe
     # is available. The dataframe may not be present if the user hasnt uploaded
